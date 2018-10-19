@@ -57,7 +57,7 @@ def print_room_items(room):
     """
     print_item = list_of_items(room['items'])
     if print_item:
-        print('There is ' + print_item + ' here.\n')
+        print('There is ' + print_item + ' here.' + '\n')
 
 
 def print_inventory_items(items):
@@ -70,14 +70,13 @@ def print_inventory_items(items):
     <BLANKLINE>
 
     """
-    str_list = ''
-    for value in items:
-        if value == items[-1]:
-            str_list = str_list + value['name'] + '.\n'
-            break
-        str_list = str_list + value['name'] + ', '
-        print('You have ' + str_list)
+    str_list = ""
     
+    for value in items:
+        str_list = str_list + value['name'] + ', '
+        if value == items[-1]:
+            print('You have ' + str_list + '\n')
+                        
 
 
 def print_room(room):
@@ -393,7 +392,7 @@ def main():
     # Main game loop
     while True:
         if items['pen'] in rooms["Reception"]["items"]:
-            print('You have completed the game')
+            print('Congratulations you have completed the game!')
             break
         # Display game status (room description, inventory etc.)
         print_room(current_room)
